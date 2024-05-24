@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> {%block title%} {%endblock%} </title>
+    {%load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/footer.css'%}">
+
+</head>
+<body>
+
+{%include 'header.html' %}
+
+
+
+{%block content %}
+
+{%endblock%}
+
+
+{%include 'footer.html' %}
+</body>
+</html>

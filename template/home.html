@@ -1,0 +1,128 @@
+{%extends 'base.html' %}
+
+{%block title%} welcome to Spruzup Blogs {%endblock%}
+
+{%block content%}
+<!DOCTYPE html>
+<html lang="en">
+ {%load static %}
+    <link rel="stylesheet" href="{% static 'css/Blog-page.css'%}">
+    <link rel="stylesheet" href="{% static 'css/slider.css'%}">
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css'%}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Slider Starts from here-->
+
+<section class="main swiper mySwiper" id="radio1">
+      <div class="wrapper swiper-wrapper">
+          {%for s in slides %}
+        <div class="slide swiper-slide">
+          <img src="/Media/{{s.image}}" alt="" class="image" />
+          <div class="image-data">
+            <div class="matter">
+              <img src="{% static 'img/3.jpg' %}" alt="Profile picture" class="matter-img" />
+              <span class="matter-name">{{s.author}} {{s.add_date}}</span>
+              <p class="text">
+                {{s.title|safe}}
+              </p>
+                  <div class="lol" style="color: wheat; margin-left: 183px; text-align: justify; margin-top: 26px;" >
+                 {{s.content|truncatewords:50|safe}}
+               </div>
+
+            </div>
+            <!-- <span class="text">Lorem ipsum dolor sit amet.`</span>
+            <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+            <a href="#" class="button">Click Here</a> -->
+            <a href="#" class="link">Read More</a>
+          </div>
+        </div>
+        <!-- new slid -->
+          {%endfor %}
+        <!-- new slider end -->
+      </div>
+
+      <div class="swiper-button-next nav-btn" id="radio1"></div>
+      <div class="swiper-button-prev nav-btn" id="radio2"></div>
+      <div class="swiper-pagination"></div>
+    </section>
+
+<!--Slider ends here-->
+
+
+
+
+
+
+<section class="post container">
+
+            {%for p in posts %}
+
+    <div class="post-box Healthcare" tabindex="0" aria-label="[first bog]">
+          <a href="/blog/{{p.url}}" >
+    <img
+      src="/Media/{{p.image}}"
+      alt="Image showing a keyboard, pen, notebook on a table"
+      class="post-img"
+      tabindex="0"
+    />
+             </a>
+    <h2 class="category" tabindex="0" aria-label="[Blog category health care]">
+      Health care
+    </h2>
+    <a href="/blog/{{p.url}}" class="post-title">
+      {{p.title|safe}}
+    </a>
+       <span class="post-date" tabindex="0">{{p.add_date}} </span>
+
+
+
+        {{p.content|truncatewords:20|safe}}
+
+
+
+
+
+        <!-- profile -->
+    <div class="profile">
+      <img src="/Media/{{p.image}}" alt="Profile picture" class="profile-img" />
+      <span class="profile-name">{{p.author}}</span>
+    </div>
+  </div>
+     {%endfor %}
+ </section>
+
+
+<script src="{% static 'js/swiper-bundle.min.js'%}"></script>
+
+<!--js for slider-->
+<!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+      var counter = 1;
+      setInterval(function () {
+        document.getElementById("radio" + counter).checked = true;
+        counter++;
+        if (counter > 3) {
+          counter = 1;
+        }
+      }, 5000);
+    </script>
+</body>
+</html>
+
+{%endblock%}

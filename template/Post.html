@@ -1,0 +1,98 @@
+{%extends 'base.html' %}
+
+
+
+
+{%block content%}
+
+<!DOCTYPE html>
+<html lang="en">
+ {%load static %}
+    <link rel="stylesheet" href="{% static 'css/post_page.css'%}">
+<head>
+    <meta charset="UTF-8">
+    <title>{{post.title|safe}</title>
+</head>
+<body>
+<div class="container">
+      <div class="hero">
+      </div>
+
+      <main>
+        <h2 tabindex="0">{{post.title|safe}}</h2>
+        <div class="profile_container">
+          <div class="profile">
+            <div class="img-container"></div>
+            <div class="text">
+              <h
+                class="Profilen"
+                tabindex="0"
+                aria-label="[Written by Anuradha]"
+                >Anuradha</h
+              >
+              <p class="Date" tabindex="0" aria-label="[Date November 14 2022]">
+                November 14, 2022
+              </p>
+                <p class="Date" tabindex="0" aria-label="[Date November 14 2022]">
+                    {{ post.content|linebreaks }}
+              </p>
+            </div>
+          </div>
+
+<!--          <div class="button">-->
+<!--            <a href="Blog-Page.html" class="btn" role="button">back-home</a>-->
+<!--          </div>-->
+        </div>
+        <div class="content" tabindex="0">
+          <p class="post-text">{{post.content|safe}}</p>
+        </div>
+        <div class="tags" tabindex="0">
+          <p>tags:</p>
+          <a href="@">web Design</a>
+          <a href="#">blogging</a>
+        </div>
+      </main>
+    </div>
+
+<!--Post body page-->
+
+
+
+<!--<div class="articles">-->
+<!--      <div class="article-heading">-->
+<!--        <h5>articles</h5>-->
+<!--        <h6>recent blogs</h6>-->
+<!--      </div>-->
+
+<!--&lt;!&ndash;    recent blogs cards&ndash;&gt;-->
+<!--      <div class="cards container" tabindex="0" aria-label="[Recent Blogs]">-->
+<!--          {%for p in posts %}-->
+<!--        <div-->
+<!--          class="card-container one"-->
+<!--          tabindex="0"-->
+<!--          id="div-button"-->
+<!--          onclick="location.href='Blog-Page.html';"-->
+<!--        >-->
+<!--          <div class="img-holder">-->
+<!--              <img src="/Media/{{p.image}}" alt="" class="img-holder" />-->
+<!--            <a href="Blog-Page.html">passion</a>-->
+<!--          </div>-->
+<!--          <div class="card-text">-->
+<!--            <h4>{{p.title|safe}}</h4>-->
+<!--            <p>-->
+<!--              {{p.content|truncatewords:20|safe}}-->
+<!--            </p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--           {%endfor %}-->
+<!--      </div>-->
+<!--      <div class="button2">-->
+<!--        <a href="#" class="btn">Back to Home page</a>-->
+<!--      </div>-->
+<!--    </div>-->
+
+
+</body>
+</html>
+
+{%endblock%}
